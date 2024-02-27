@@ -19,7 +19,7 @@ const useFact = () => {
 
       setFirstWords(words);
     } catch (error) {
-      setError("Error getting the fact");
+      setError("Error getting the cat fact");
     } finally {
       setIsLoading(false);
     }

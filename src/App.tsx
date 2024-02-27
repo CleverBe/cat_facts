@@ -27,10 +27,10 @@ const App = () => {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen gap-2 p-5">
+    <main className="flex flex-col items-center justify-center h-screen gap-2 p-5 bg-slate-300">
       <h1 className="text-2xl font-bold">APP DE GATITOS</h1>
       <button
-        className="px-2 py-1 text-white bg-blue-400 rounded-md hover-bg-blue-500"
+        className="px-2 py-1 text-white bg-blue-500 rounded-md hover:bg-blue-600"
         onClick={async () => {
           await getNewFact();
           await getCatImage();
@@ -38,16 +38,22 @@ const App = () => {
       >
         Get new Fact
       </button>
-      {isLoadingFact ? <h2>Loading fact</h2> : <p>{fact}</p>}
-      {isLoadingImg ? (
-        <h2>Loading image</h2>
-      ) : (
-        <img
-          className="max-w-md max-h-96"
-          src={imageUrl}
-          alt={`Image extracted from TheCatApi`}
-        />
-      )}
+      <div className="bg-slate-500 p-2 rounded-md">
+        <div className="max-w-2xl text-center">
+          {isLoadingFact ? <p>Loading fact</p> : <p>{fact}</p>}
+        </div>
+        <div className="flex justify-center">
+          {isLoadingImg ? (
+            <p>Loading image</p>
+          ) : (
+            <img
+              className="max-w-md max-h-96"
+              src={imageUrl}
+              alt={`Image extracted from TheCatApi`}
+            />
+          )}
+        </div>
+      </div>
     </main>
   );
 };

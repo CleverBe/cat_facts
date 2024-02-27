@@ -12,7 +12,7 @@ const useGetCatImage = () => {
       const response = await getCatImageFn();
       setImageUrl(response?.[0]?.url);
     } catch (error) {
-      setError("Error getting the image");
+      setError("Error getting the cat image");
     } finally {
       setIsLoading(false);
     }
